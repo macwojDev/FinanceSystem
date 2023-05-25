@@ -27,7 +27,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'core'
+    'core',
+    'budget'
 ]
 
 MIDDLEWARE = [
@@ -61,8 +62,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'FinanceSystem.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
     'default': {
