@@ -1,0 +1,11 @@
+{% extends 'core/base.html' %}
+
+{% block title %} Budget {% endblock title %}
+
+{% block content %}
+    <div>
+        {% for expense in expenses %}
+            <h1> {{expense.name}} </h1>
+        {% endfor %}
+    </div>
+{% endblock content %}
