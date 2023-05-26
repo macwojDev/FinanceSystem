@@ -485,6 +485,25 @@ video {
 .flex {
   display: flex;
 }
+.h-96 {
+  height: 24rem;
+}
+.w-56 {
+  width: 14rem;
+}
+.w-80 {
+  width: 20rem;
+}
+.justify-center {
+  justify-content: center;
+}
+.rounded-xl {
+  border-radius: 0.75rem;
+}
+.bg-green-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(74 222 128 / var(--tw-bg-opacity));
+}
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
@@ -492,4 +511,8 @@ video {
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+}
+.hover\:bg-green-600:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(22 163 74 / var(--tw-bg-opacity));
 }

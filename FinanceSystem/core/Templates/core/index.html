@@ -3,9 +3,18 @@
 {% block title %}home{% endblock title %}
 
 {% block content %}
-<nav class="flex flex-start">
-    <div class="px-6 py-6 ">
-        <p>Finance System</p>
-    </div>
-</nav>
+<main class="flex justify-center">
+    <section class="w-80 h-96">
+        <h1> Have you already got an account? Let's check your finances! </h1>
+        <div class="w-56 rounded-xl bg-green-400 hover:bg-green-600">
+            <a href="{% url 'login' %}">Log in</a>
+        </div>
+    </section>
+    <section class="w-80 h-96">
+        <h1> Still not a member of our service? Join us! </h1>
+        <div class="w-56 rounded-xl bg-green-400 hover:bg-green-600">
+            <a href="{% url 'signup' %}">Sign in</a>
+        </div>
+    </section>
+</main>
 {% endblock content %}
