@@ -3,9 +3,14 @@
 {% block title %} Budget {% endblock title %}
 
 {% block content %}
+<section>
+    {%%}
+</section>
+<main class="flex justify-center">
     <div>
-        {% for expense in expenses %}
-            <h1> {{expense.name}} </h1>
-        {% endfor %}
+        <p>{{ user.username }}</p>
+        <p>{{ budget.wealth }}</p>
+        <p>{{ budget.weekly_limit }}</p>
     </div>
+</main>
 {% endblock content %}

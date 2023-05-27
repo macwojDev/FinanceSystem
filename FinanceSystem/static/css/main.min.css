@@ -494,6 +494,9 @@ video {
 .w-80 {
   width: 20rem;
 }
+.items-center {
+  align-items: center;
+}
 .justify-center {
   justify-content: center;
 }
@@ -511,6 +514,10 @@ video {
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+}
+.text-6xl {
+  font-size: 3.75rem;
+  line-height: 1;
 }
 .hover\:bg-green-600:hover {
   --tw-bg-opacity: 1;
