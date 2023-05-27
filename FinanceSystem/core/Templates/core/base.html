@@ -10,9 +10,14 @@
 </head>
 <body>
     <nav class="flex flex-start">
-        <div class="px-6 py-6 ">
+        <div class="px-6 py-6 text-6xl font-semibold">
             <p>Finance System</p>
         </div>
+        {% if request.user.is_authenticated %}
+        <div class="px-6 py-6 rounded-xl bg-red-500 hover:bg-red-700">
+            <p><a href="{% url 'logout' %}"></a></p>
+        </div>
+        {% endif %}
     </nav>
     {% block content %}
     {% endblock content %}

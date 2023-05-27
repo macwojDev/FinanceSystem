@@ -3,17 +3,19 @@
 {% block title %}home{% endblock title %}
 
 {% block content %}
-<main class="flex justify-center">
-    <section class="w-80 h-96">
-        <h1> Have you already got an account? Let's check your finances! </h1>
-        <div class="w-56 rounded-xl bg-green-400 hover:bg-green-600">
-            <a href="{% url 'login' %}">Log in</a>
+<main class="flex justify-center items-center h-screen w-full">
+    <section class="w-2/3 h-96 flex justify-center rounded-l-xl bg-teal-400">
+        <div>
+            <h1> Have you already got an account? Let's check your finances! </h1>
+            <a href="{% url 'login' %}"><div class="w-56 h-46 rounded-xl bg-green-400 hover:bg-green-600">
+                Login
+            </div></a>
         </div>
-    </section>
-    <section class="w-80 h-96">
-        <h1> Still not a member of our service? Join us! </h1>
-        <div class="w-56 rounded-xl bg-green-400 hover:bg-green-600">
-            <a href="{% url 'signup' %}">Sign in</a>
+        <div>
+            <h1> Still not a member of our service? Join us! </h1>
+            <a href="{% url 'signup' %}"><div class="w-56 h-46 rounded-xl bg-green-400 hover:bg-green-600">
+                Sign in
+            </div></a>
         </div>
     </section>
 </main>

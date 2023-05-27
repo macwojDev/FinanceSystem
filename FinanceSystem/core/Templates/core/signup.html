@@ -1,9 +1,11 @@
 {% extends 'core/base.html' %}
 
-{% block title %}{% endblock title %}
+{% block title %}Sign in{% endblock title %}
 
 {% block content %}
-    <form action="" method="post">
+    <form action="{% url 'budget_status' %}" method="post">
+        {% csrf_token %}
         {{ form.as_p }}
+        <button type="submit" class="px-4 py-4 flex justify-center bg-green-400 hover:bg-green-600"> Sign in </button>
     </form>
 {% endblock content %}

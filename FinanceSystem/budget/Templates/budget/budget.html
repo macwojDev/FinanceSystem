@@ -4,13 +4,14 @@
 
 {% block content %}
 <section>
-    {%%}
+    {% for expense in expenses %}
+        <p><a href="{% url 'budget:expense_detail' %}">{{ expense.name }}</a></p>
+    {% endfor %}
 </section>
 <main class="flex justify-center">
     <div>
-        <p>{{ user.username }}</p>
-        <p>{{ budget.wealth }}</p>
-        <p>{{ budget.weekly_limit }}</p>
+        <p class="px-4 py-4 text-2xl flex justify-start">{{ user.username }}</p>
+        <p class="px-4 py-4 text-xl flex justify-center">{{ budget.wealth }}</p>
     </div>
 </main>
 {% endblock content %}

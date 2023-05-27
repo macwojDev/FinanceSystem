@@ -33,10 +33,11 @@ class Income(models.Model):
 class Budget(models.Model):
     wealth = models.DecimalField(max_digits=12, decimal_places=2)
     weekly_limit = models.FloatField(max_length=9)
+    last_week_spent = models.FloatField(max_length=9)
 
     user = models.OneToOneField(User, related_name='budget', on_delete=models.CASCADE)
-    expenses = models.ManyToManyField(Expense, related_name='budgets')
-    incomes = models.ManyToManyField(Income, related_name='budgets')
+    expenses = models.ManyToManyField(Expense, related_name='budget')
+    incomes = models.ManyToManyField(Income, related_name='budget')
 
 
     class Meta:
@@ -44,7 +45,8 @@ class Budget(models.Model):
     
     def __str__(self):
         return f"{self.user.username}'s Budget"
-    
+
+#   usuwanie wydatków i przychodów w momencie usunięcia konta
     def delete(self, *args, **kwargs):
         self.expenses.clear()
         self.incomes.clear()
