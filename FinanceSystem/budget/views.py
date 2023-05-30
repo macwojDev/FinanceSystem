@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Expense, Budget, Income
+from .forms import BudgetCreationForm
 
 def budget_status(request):
     if Budget.objects.filter(user=request.user):
@@ -16,4 +17,15 @@ def budget_status(request):
     return render(request, 'budget/budget_status.html' ,context)
 
 def budget_creation(request):
-    ...
+    form = BudgetCreationForm()
+    if request.method == 'POST':
+        form = BudgetCreationForm(request.post)
+        if form.is_valid():
+            form.user = request.user
+            form.save()
+            return redirect('/budget_status/')
+        else:
+            form = BudgetCreationForm()
+    return render(request, 'budget/budget_creation.html',{
+        'form' : form
+    })
