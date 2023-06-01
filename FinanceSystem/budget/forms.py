@@ -33,7 +33,7 @@ class ExpenseCreationForm(forms.ModelForm):
             'cost':forms.NumberInput(attrs={
                 'class' : INPUT_CLASSES
             }),
-            'description' : forms.TextInput(widget=forms.Textarea,attrs={
+            'description' : forms.TextInput(attrs={
                 'class' : INPUT_CLASSES
             }),
         }
