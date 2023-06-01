@@ -11,9 +11,9 @@ def budget_status(request):
             'expenses':expenses,
             'budget':budget,
             'incomes':incomes
-    }
+        }
     else:
-        render(request,'budget/budget_creation.html')
+        redirect('budget_creation')
     return render(request, 'budget/budget_status.html' ,context)
 
 def budget_creation(request):
@@ -23,7 +23,7 @@ def budget_creation(request):
         if form.is_valid():
             form.user = request.user
             form.save()
-            return redirect('/budget_status/')
+            return redirect('budget/budget_status/')
         else:
             form = BudgetCreationForm()
     return render(request, 'budget/budget_creation.html',{

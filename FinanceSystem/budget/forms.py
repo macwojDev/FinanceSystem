@@ -1,16 +1,27 @@
 from django import forms
 from .models import Budget
 
+INPUT_CLASSES = 'w-full py-4 px-6 rounded-xl'
+
 class BudgetCreationForm(forms.ModelForm):
-    wealth = forms.CharField(min_length=3, max_length=12, widget=forms.NumberInput(attrs={
-        'placeholder':'Your wealth',
-        'class': 'w-full py-4 px-6 rounded-xl'
-    }))
-    weekly_limit = forms.CharField(min_length=3, max_length=12, widget=forms.NumberInput(attrs={
-        'placeholder':'Weekly limit',
-        'class': 'w-full py-4 px-6 rounded-xl'
-    }))     
-    user = ...
-    
     class Meta:
         model = Budget
+        fields = ('wealth', 'weekly_limit')
+        
+        widgets = {
+            'wealth' : forms.NumberInput(attrs={
+                'class' : INPUT_CLASSES
+            }),
+            'weekly_limit':forms.NumberInput(attrs={
+                'class' : INPUT_CLASSES
+            })
+        }
+        labels = {
+            'wealth':'Your wealth',
+            'weekly_limit':'Control your expenses with weekly limit!'
+        }
+    
+    
+    
+    
+

@@ -25,7 +25,7 @@ class Income(models.Model):
 
     class Meta:
         ordering = ("-created_at",)
-        verbose_name_plural= 'Expenses'
+        verbose_name_plural= 'Incomes'
     # elementy tabeli zwracają swoją nazwe 
 
 

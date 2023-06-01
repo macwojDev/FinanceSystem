@@ -18,7 +18,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 LOGIN_URL = '/login/'
-LOGIN_REDIRECT_URL = '/budget/budget_status'
+LOGIN_REDIRECT_URL = '/budget/'
 LOGOUT_REDIRECT_URL = '/'
 
 # Application definition

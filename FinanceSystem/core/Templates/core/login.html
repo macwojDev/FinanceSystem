@@ -4,7 +4,16 @@
 
 {% block content %}
 {% csrf_token %}
-
-    {{ form.as_p }}
-
+<main class="w-full h-screen flex justify-center items-center">
+    <section class="w-96 h-3/5 rounded-xl">
+        <p class="px-4 py-4 flex justify-center items-center text-2xl ">
+            <h1>Login</h1>
+        </p>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="px-4 py-4 flex justify-center bg-green-400 hover:bg-green-600"> log in </button>
+        </form>
+    </section>
+</main>
 {% endblock content %}
