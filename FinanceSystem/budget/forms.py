@@ -1,5 +1,5 @@
 from django import forms
-from .models import Budget
+from .models import Budget, Expense
 
 INPUT_CLASSES = 'w-full py-4 px-6 rounded-xl'
 
@@ -21,6 +21,27 @@ class BudgetCreationForm(forms.ModelForm):
             'weekly_limit':'Control your expenses with weekly limit!'
         }
     
+class ExpenseCreationForm(forms.ModelForm):
+    class Meta:
+        model = Expense
+        fields = ('name', 'cost', 'description')
+        
+        widgets = {
+            'name' : forms.TextInput(attrs={
+                'class' : INPUT_CLASSES
+            }),
+            'cost':forms.NumberInput(attrs={
+                'class' : INPUT_CLASSES
+            }),
+            'description' : forms.TextInput(widget=forms.Textarea,attrs={
+                'class' : INPUT_CLASSES
+            }),
+        }
+        labels = {
+            'name':'Expense Name',
+            'cost':'How much was it?',
+            'description':'Describe the expense!'
+        }
     
     
     

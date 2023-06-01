@@ -32,8 +32,8 @@ class Income(models.Model):
 
 class Budget(models.Model):
     wealth = models.DecimalField(max_digits=12, decimal_places=2)
-    weekly_limit = models.FloatField(max_length=9)
-    last_week_spent = models.FloatField(max_length=9)
+    weekly_limit = models.FloatField(max_length=9,blank=True,null=True)
+    last_week_spent = models.FloatField(max_length=9, blank=True, null=True)
 
     user = models.OneToOneField(User, related_name='budget', on_delete=models.CASCADE)
     expenses = models.ManyToManyField(Expense, related_name='budget')
