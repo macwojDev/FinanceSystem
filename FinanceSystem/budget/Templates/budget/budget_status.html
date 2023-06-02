@@ -4,15 +4,23 @@
 
 {% block content %}
 <section>
+    <ul>
     {% for expense in expenses %}
-        <p><a href="{% url 'budget:expense_detail' %}">{{ expense.name }}</a></p>
+        <li><p><a href="{% url 'budget:expense_detail' expense.id %}">{{ expense.name }}</a></p></li>
     {% endfor %}
+    </ul>
 </section>
-<main class="flex justify-center">
-    <div>
-        <p class="px-4 py-4 text-2xl flex justify-start">{{ user.username }}</p>
-        <p class="px-4 py-4 text-xl flex justify-center">{{ budget.wealth }}</p>
-        <p class="px-4 py-4 text-xl flex justify-center">{{ budget.user }}</p>
+<main class="w-full h-screen flex justify-center items-center">
+    <div class="w-3/5 h-2/5 flex flex-row rounded-xl bg-green-500">
+        <p class="px-4 py-4 h-32 text-xl flex justify-center">{{ budget.user }}'s budget status</p>
+        <p class="px-4 py-4 h-32 text-xl flex justify-center">{{ budget.wealth }}</p>
     </div>
 </main>
+<section>
+    <ul>
+    {% for income in incomes %}
+        <li><p><a href="{% url 'budget:income_detail' income.id %}">{{ income.name }}</a></p></li>
+    {% endfor %}
+    </ul>
+</section>
 {% endblock content %}

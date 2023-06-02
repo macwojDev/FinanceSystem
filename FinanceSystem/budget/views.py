@@ -33,14 +33,20 @@ def budget_creation(request):
         'form' : form
     })
 
-def expense_creation(request):
+def new_expense(request):
     budget = Budget.objects.filter(user=request.user)
     form = ExpenseCreationForm()
     if request.method == 'POST':
         form = ExpenseCreationForm(request.POST)
         if form.is_valid():
-            form.owner = request.user
-            form.save()
+            expense = form.save(commit=False)
+            expense.owner = request.user
+            budget.expenses.add(expense)
+            expense.save()
+            budget.save()
+        else:
+            form = ExpenseCreationForm()
+    return render(request, 'budget/new_expense.html')
 
 def expense_detail(request, pk):
     expense = get_object_or_404(Expense, pk=pk)
