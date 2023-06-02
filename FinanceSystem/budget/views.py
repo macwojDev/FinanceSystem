@@ -83,8 +83,18 @@ def expense_detail(request, pk):
         'expense':expense
     })
 def income_detail(request, pk):
-    income = get_object_or_404(Expense, pk=pk)
-    return render(request, 'budget/expense_detail.html', {
-        'expense':income
+    income = get_object_or_404(Income, pk=pk)
+    return render(request, 'budget/income_detail.html', {
+        'income':income
     })
+
+def expense_delete(request, pk):
+    expense = get_object_or_404(Expense,pk=pk)
+    expense.delete()
+    return redirect('budget_status')
+
+def income_delete(request, pk):
+    income = get_object_or_404(Income,pk=pk)
+    income.delete()
+    return redirect('budget_status')
 

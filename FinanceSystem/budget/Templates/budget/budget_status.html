@@ -3,24 +3,26 @@
 {% block title %} Budget {% endblock title %}
 
 {% block content %}
-<section>
-    <ul>
-    {% for expense in expenses %}
-        <li><p><a href="{% url 'expense_detail' expense.id %}">{{ expense.name }}</a></p></li>
-    {% endfor %}
-    </ul>
-</section>
-<main class="w-full h-screen flex justify-center items-center">
-    <div class="w-3/5 h-2/5 flex flex-row rounded-xl bg-green-500">
+<main class="w-full h-screen flex justify-around items-center">
+    <section>
+        <ul>
+        {% for expense in expenses %}
+            <li><p><a href="{% url 'expense_detail' expense.id %}">{{ expense.name }}</a></p></li>
+        {% endfor %}
+        </ul>
+    </section>
+
+    <div class="w-3/5 h-2/5 flex flex-row rounded-xl bg-green-400">
         <p class="px-4 py-4 h-32 text-xl flex justify-center">{{ budget.user }}'s budget status</p>
         <p class="px-4 py-4 h-32 text-xl flex justify-center">{{ budget.wealth }}</p>
     </div>
+
+    <section>
+        <ul>
+        {% for income in incomes %}
+            <li><p><a href="{% url 'income_detail' income.id %}">{{ income.name }}</a></p></li>
+        {% endfor %}
+        </ul>
+    </section>
 </main>
-<section>
-    <ul>
-    {% for income in incomes %}
-        <li><p><a href="{% url 'income_detail' income.id %}">{{ income.name }}</a></p></li>
-    {% endfor %}
-    </ul>
-</section>
 {% endblock content %}
