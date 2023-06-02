@@ -6,7 +6,7 @@
 <section>
     <ul>
     {% for expense in expenses %}
-        <li><p><a href="{% url 'budget:expense_detail' expense.id %}">{{ expense.name }}</a></p></li>
+        <li><p><a href="{% url 'expense_detail' expense.id %}">{{ expense.name }}</a></p></li>
     {% endfor %}
     </ul>
 </section>
@@ -19,7 +19,7 @@
 <section>
     <ul>
     {% for income in incomes %}
-        <li><p><a href="{% url 'budget:income_detail' income.id %}">{{ income.name }}</a></p></li>
+        <li><p><a href="{% url 'income_detail' income.id %}">{{ income.name }}</a></p></li>
     {% endfor %}
     </ul>
 </section>

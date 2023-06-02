@@ -1,14 +1,14 @@
 {% extends 'core/base.html' %}
 
-{% block title %}Sign in{% endblock title %}
+{% block title %}Budget Changes{% endblock title %}
 
 {% block content %}
 <main class="h-screen w-full flex justify-center items-center bg-slate-200">
-    <section class="w-96 h-3/5 rounded-xl">
+    <section class="w-96 h-3/5 rounded-xl bg-yellow-300">
         <form action="" method="post">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit" class="px-4 py-4 flex justify-center bg-green-400 hover:bg-green-600"> Sign in </button>
+            <button type="submit" class="px-4 py-4 flex justify-center rounded-xl bg-green-400 hover:bg-green-600"> Add </button>
         </form>
     </section>
 </main>
