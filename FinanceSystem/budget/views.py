@@ -88,13 +88,21 @@ def income_detail(request, pk):
         'income':income
     })
 
-def expense_delete(request, pk):
+def income_delete(request, pk):
     expense = get_object_or_404(Expense,pk=pk)
+    budget = Budget.objects.get(user = request.user)
+    budget.wealth = float(budget.wealth)
+    budget.wealth += float(expense.cost)
+    budget.save()
     expense.delete()
     return redirect('budget_status')
 
 def income_delete(request, pk):
     income = get_object_or_404(Income,pk=pk)
+    budget = Budget.objects.get(user = request.user)
+    budget.wealth = float(budget.wealth)
+    budget.wealth -= float(income.income)
+    budget.save()
     income.delete()
     return redirect('budget_status')
 

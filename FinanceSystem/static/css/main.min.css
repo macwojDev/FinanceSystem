@@ -497,6 +497,9 @@ video {
 .h-2\/5 {
   height: 40%;
 }
+.h-20 {
+  height: 5rem;
+}
 .h-3\/5 {
   height: 60%;
 }
@@ -538,6 +541,9 @@ video {
 }
 .justify-center {
   justify-content: center;
+}
+.justify-between {
+  justify-content: space-between;
 }
 .justify-around {
   justify-content: space-around;
