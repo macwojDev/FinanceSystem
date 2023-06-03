@@ -2,7 +2,8 @@
   "watch": {
     "build": {
       "patterns": [
-        "core"
+        "core",
+        "budget"
       ],
       "extensions": "html",
       "quiet": "false"
