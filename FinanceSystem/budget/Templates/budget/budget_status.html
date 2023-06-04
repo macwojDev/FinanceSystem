@@ -11,12 +11,18 @@
         {% endfor %}
         </ul>
     </section>
-
+    <section>
     <div class="w-3/5 h-2/5 flex flex-row rounded-xl bg-green-400">
         <p class="px-4 py-4 h-32 text-xl flex justify-center">{{ budget.user }}'s budget status</p>
         <p class="px-4 py-4 h-32 text-xl flex justify-center">{{ budget.wealth }}</p>
-    </div>
+        {% if budget.weekly_limit %}
 
+        {% else %}
+       
+        {% endif %}
+    </div>
+    
+    </section>
     <section>
         <ul>
         {% for income in incomes %}

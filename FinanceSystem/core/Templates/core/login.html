@@ -4,16 +4,20 @@
 
 {% block content %}
 {% csrf_token %}
-<main class="w-full h-screen flex justify-center items-center">
-    <section class="w-96 h-3/5 rounded-xl bg-lime-300">
-        <p class="px-4 py-4 flex justify-center items-center text-2xl ">
-            <h1>Login</h1>
-        </p>
+<main class="w-full h-screen flex justify-center items-center rounded-xl">
+    <section class="w-2/5 h-2/3 rounded-xl bg-teal-400">
+        <div class="px-4 py-4 flex justify-center items-center text-2xl ">
+            <span>Login</span>
+        </div>
+        <div class="flex justify-center">
         <form action="" method="post">
             {% csrf_token %}
             {{ form.as_p }}
+            <div class="py-16 flex justify-center items-center">
             <button type="submit" class="px-4 py-4 flex justify-center bg-green-400 hover:bg-green-600"> Login </button>
+            </div>
         </form>
+        </div>  
     </section>
 </main>
 {% endblock content %}
