@@ -106,3 +106,12 @@ def income_delete(request, pk):
     income.delete()
     return redirect('budget_status')
 
+def set_weekly_limit(request):
+    budget = Budget.objects.get(user=request.user)
+    if 'limit' in request.GET.get:
+        limit = request.GET.get('limit')
+        budget.weekly_limit = float(limit)
+        budget.save()
+        
+
+
