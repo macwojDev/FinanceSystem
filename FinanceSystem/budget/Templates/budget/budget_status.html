@@ -16,9 +16,13 @@
         <p class="px-4 py-4 h-32 text-xl flex justify-center">{{ budget.user }}'s budget status</p>
         <p class="px-4 py-4 h-32 text-xl flex justify-center">{{ budget.wealth }}</p>
         {% if budget.weekly_limit %}
-
+            <span> {{budget.weekly_limit}}</span>
         {% else %}
-       
+        <form action="" method="get">
+            <label for="number">Set your weekly limit: </label>
+            <input type="number" name="limit">
+            <button type="submit" value="limit">
+        </form>
         {% endif %}
     </div>
     

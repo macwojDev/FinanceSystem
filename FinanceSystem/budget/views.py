@@ -5,6 +5,12 @@ from .forms import BudgetCreationForm, ExpenseCreationForm, IncomeCreationForm
 # widok budżetu, centralnej części aplikacji
 def budget_status(request):
     budget_exists = Budget.objects.filter(user=request.user).exists()
+# pobieranie ustalonego limitu tygodniowego
+    if 'limit' in request.GET.get:
+        limit = request.GET.get('limit')
+        limit = float(limit)
+        budget.weekly_limit = limit
+        budget.save()
     if budget_exists:
         budget = Budget.objects.get(user=request.user)
         expenses = budget.expenses.all()
@@ -105,13 +111,4 @@ def income_delete(request, pk):
     budget.save()
     income.delete()
     return redirect('budget_status')
-
-def set_weekly_limit(request):
-    budget = Budget.objects.get(user=request.user)
-    if 'limit' in request.GET.get:
-        limit = request.GET.get('limit')
-        budget.weekly_limit = float(limit)
-        budget.save()
-        
-
 
