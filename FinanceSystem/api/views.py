@@ -1,19 +1,19 @@
-from django.contrib.auth.models import User, Group
-from rest_framework import viewsets
-from rest_framework import permissions
-from .serializers import UserSerializer, GroupSerializer
+from rest_framework import generics
+from .serializers import BudgetSerializer, IncomeSerializer, ExpenseSerializer, UserSerializer
+from .serializers import Budget, Income, Expense, User
 
-
-class UserViewSet(viewsets.ModelViewSet):
-    # endpoint
-
-    queryset = User.objects.all().order_by('-date_joined')
+class UserList(generics.ListCreateAPIView):
+    queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = [permissions.IsAuthenticated]
 
+class BudgetList(generics.ListCreateAPIView):
+    queryset = Budget.objects.all()
+    serializer_class = BudgetSerializer
 
-class GroupViewSet(viewsets.ModelViewSet):
-    
-    queryset = Group.objects.all()
-    serializer_class = GroupSerializer
-    permission_classes = [permissions.IsAuthenticated]
+class IncomeList(generics.ListCreateAPIView):
+    queryset = Income.objects.all()
+    serializer_class = IncomeSerializer
+
+class ExpenseList(generics.ListCreateAPIView):
+    queryset = Expense.objects.all()
+    serializer_class = ExpenseSerializer
